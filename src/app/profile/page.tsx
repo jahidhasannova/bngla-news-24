@@ -23,7 +23,6 @@ const ProfilePage = () => {
         const name = (formData.get("name") as string)?.trim();
         const image = (formData.get("image") as string)?.trim();
 
-        // Only send fields the user actually filled in
         const updates: { name?: string; image?: string } = {};
         if (name) updates.name = name;
         if (image) updates.image = image;
@@ -55,8 +54,8 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center mt-5">
-            <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center mt-5 px-4">
+            <div className="flex flex-col items-center gap-2 text-center">
                 <Link href="/profile">
                     <div className="avatar mt-5">
                         <div className="ring-primary ring-offset-base-100 w-30 rounded-full ring-2 ring-offset-2">
@@ -67,24 +66,29 @@ const ProfilePage = () => {
                         </div>
                     </div>
                 </Link>
+
                 <h2>{user?.name}</h2>
                 <p>{user?.email}</p>
             </div>
 
-            <h1 className="text-2xl font-bold mt-5">Update Your Profile</h1>
+            <h1 className="text-2xl font-bold mt-5 text-center">
+                Update Your Profile
+            </h1>
 
             <button
                 type="button"
                 onClick={handleShowForm}
-                className="btn w-xl mt-2 mb-5"
+                className="btn w-full max-w-md mt-2 mb-5"
             >
                 {show ? "Cancel" : "Edit"}
             </button>
 
             {message && (
                 <p
-                    className={`mb-3 ${
-                        message.type === "success" ? "text-green-600" : "text-red-600"
+                    className={`mb-3 text-center ${
+                        message.type === "success"
+                            ? "text-green-600"
+                            : "text-red-600"
                     }`}
                 >
                     {message.text}
@@ -92,8 +96,12 @@ const ProfilePage = () => {
             )}
 
             {show && (
-                <form onSubmit={handleUpdateProfile} className="w-full max-w-md">
+                <form
+                    onSubmit={handleUpdateProfile}
+                    className="w-full max-w-md"
+                >
                     <label className="label">নাম / Name</label>
+
                     <input
                         name="name"
                         type="text"
@@ -102,7 +110,10 @@ const ProfilePage = () => {
                         placeholder="আব্দুল করিম / Abdul Karim"
                     />
 
-                    <label className="label">প্রোফাইল ছবি / Profile Image</label>
+                    <label className="label">
+                        প্রোফাইল ছবি / Profile Image
+                    </label>
+
                     <input
                         name="image"
                         type="url"

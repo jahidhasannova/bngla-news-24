@@ -31,18 +31,19 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="grid grid-cols-3 mt-5 max-w-7xl mx-auto gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 mt-5 max-w-7xl mx-auto gap-5 px-4">
         {/* news section */}
-        <div className="grid col-span-2">
+        <div className="grid col-span-1 lg:col-span-2">
           <MainNews news={mainNews}></MainNews>
 
           <div className="mt-10">
             {otherSection.map((os) => (
               <div className="py=1" key={os.curationId}>
-                <h1 className="text-xl font-bold border-b-3 border-red-700 mt-5 ">
+                <h1 className="text-xl font-bold border-b-3 border-red-700 mt-5">
                   {os.title}
                 </h1>
-                <div className="grid grid-cols-3 mt-3 gap-3">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-3 gap-3">
                   {os.articles.map((news) => (
                     <NewsCard key={news.id} news={news}></NewsCard>
                   ))}
@@ -52,7 +53,7 @@ export default async function Home() {
           </div>
         </div>
 
-        {/*most read section */}
+        {/* most read section */}
         <div className="grid col-span-1">
           <MostRead></MostRead>
         </div>

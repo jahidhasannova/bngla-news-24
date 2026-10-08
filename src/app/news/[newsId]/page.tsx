@@ -37,26 +37,26 @@ const NewsDetailspage = async ({
     : "তারিখ পাওয়া যায়নি";
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-5 sm:py-8">
       <article className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold leading-tight text-center">
+        <h1 className="text-2xl sm:text-4xl font-bold leading-tight text-center">
           {News.title}
         </h1>
 
-        <p className="mt-4 text-center text-gray-500 border-t pt-4">
+        <p className="mt-4 text-sm sm:text-base text-center text-gray-500 border-t pt-4">
           {News.byline?.[0]?.name || "অজানা লেখক"} · {date} ·{" "}
           {News.wordCount || 0} শব্দ
         </p>
 
-        <p className="mt-6 text-xl leading-8 text-gray-600 text-center">
+        <p className="mt-5 sm:mt-6 text-lg sm:text-xl leading-8 text-gray-600 text-center">
           {News.description?.blocks?.[0]?.text || ""}
         </p>
 
-        <div className="mt-8">
+        <div className="mt-6 sm:mt-8">
           {News.body?.map((item: BodyItem, index: number) => {
             if (item.type === "image" && item.url) {
               return (
-                <figure key={index} className="my-8">
+                <figure key={index} className="my-6 sm:my-8">
                   <Image
                     src={item.url}
                     alt={item.caption || News.title}
@@ -66,7 +66,7 @@ const NewsDetailspage = async ({
                   />
 
                   {item.caption && (
-                    <figcaption className="mt-2 text-sm text-gray-500">
+                    <figcaption className="mt-2 text-xs sm:text-sm text-gray-500">
                       {item.caption}
                     </figcaption>
                   )}
@@ -82,7 +82,10 @@ const NewsDetailspage = async ({
 
             if (item.type === "subheading") {
               return (
-                <h2 key={index} className="text-2xl font-bold mt-10 mb-4">
+                <h2
+                  key={index}
+                  className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10 mb-3 sm:mb-4"
+                >
                   {item.text}
                 </h2>
               );
@@ -92,7 +95,7 @@ const NewsDetailspage = async ({
               return (
                 <p
                   key={index}
-                  className="text-lg leading-9 text-gray-800 mb-6"
+                  className="text-base sm:text-lg leading-8 sm:leading-9 text-gray-800 mb-5 sm:mb-6"
                 >
                   {item.text}
                 </p>
@@ -103,7 +106,7 @@ const NewsDetailspage = async ({
           })}
         </div>
 
-        <div className="mt-10 pt-6 border-t">
+        <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t">
           <div className="flex flex-wrap gap-2">
             {News.tags?.map((tag: string, index: number) => (
               <span

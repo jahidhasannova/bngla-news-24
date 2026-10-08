@@ -21,7 +21,7 @@ const Navelinks = async () => {
   const filteredNavs = navs.filter((n) => n.scrapable);
 
   return (
-    <div className="flex justify-center gap-5 mt-2 text-gray-500">
+    <div className="flex justify-center gap-3 sm:gap-5 mt-2 px-4 overflow-x-auto whitespace-nowrap">
       <ActiveNavLink href="/">হোম</ActiveNavLink>
 
       {filteredNavs.map((n) => (

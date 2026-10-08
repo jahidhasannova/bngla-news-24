@@ -6,14 +6,21 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
-            <h2 className="text-xl font-bold text-red-700">Bangla News 24</h2>
+            <h2 className="text-xl font-bold text-red-700">
+              Bangla News 24
+            </h2>
 
-            <p className="text-sm text-gray-500 mt-1">সর্বশেষ খবর, সবার আগে।</p>
+            <p className="text-sm text-gray-500 mt-1">
+              সর্বশেষ খবর, সবার আগে।
+            </p>
           </div>
 
           <div className="flex flex-col items-center md:items-end gap-2">
-            <nav className="flex flex-wrap justify-center gap-5 text-sm text-gray-600">
-              <Link href="/" className="hover:text-red-700 transition-colors">
+            <nav className="flex flex-wrap justify-center gap-3 sm:gap-5 text-sm text-gray-600">
+              <Link
+                href="/"
+                className="hover:text-red-700 transition-colors"
+              >
                 হোম
               </Link>
 
