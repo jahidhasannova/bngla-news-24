@@ -48,7 +48,7 @@ const Userinfo = () => {
                     </button>
                 </div>
             ) : (
-                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+                <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
                     <ActiveNavLink href="/signin">
                         সাইন ইন
                     </ActiveNavLink>
